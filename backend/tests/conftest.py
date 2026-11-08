@@ -20,6 +20,7 @@ from fastapi.testclient import TestClient  # noqa: E402
 from sqlalchemy.pool import StaticPool  # noqa: E402
 from sqlmodel import Session, SQLModel, create_engine  # noqa: E402
 
+import app.models  # noqa: E402, F401  registra as tabelas no metadata
 
 SENHA_PADRAO = "senha-forte-123"
 EMAIL_PADRAO = "ana@exemplo.com"
