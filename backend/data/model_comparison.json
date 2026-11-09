@@ -1,0 +1,117 @@
+{
+  "dataset": "dataset.csv",
+  "training_data_sha256": "c38e69ec813d7748c0d9344776af6d01cf27bc65d851a5a1f0e9aec4b4860a6e",
+  "rows": 379,
+  "features": [
+    "levantamento",
+    "genero",
+    "idade",
+    "peso",
+    "carga"
+  ],
+  "class_counts": {
+    "avancado": 114,
+    "iniciante": 132,
+    "intermediario": 133
+  },
+  "confusion_matrix_labels": [
+    "avancado",
+    "iniciante",
+    "intermediario"
+  ],
+  "folds": 5,
+  "random_state": 42,
+  "versions": {
+    "scikit-learn": "1.9.1",
+    "xgboost": "3.4.1",
+    "joblib": "1.6.0"
+  },
+  "models": {
+    "knn": {
+      "accuracy_mean": 0.8601403508771931,
+      "accuracy_std": 0.029618150541343567,
+      "f1_macro_mean": 0.8563662529049711,
+      "f1_macro_std": 0.028844124306498947,
+      "f1_per_class": {
+        "avancado": 0.8,
+        "iniciante": 0.9626865671641791,
+        "intermediario": 0.8072727272727273
+      },
+      "confusion_matrix": [
+        [
+          86,
+          0,
+          28
+        ],
+        [
+          0,
+          129,
+          3
+        ],
+        [
+          15,
+          7,
+          111
+        ]
+      ]
+    },
+    "random_forest": {
+      "accuracy_mean": 0.8548421052631578,
+      "accuracy_std": 0.03448296379726905,
+      "f1_macro_mean": 0.8510567598217296,
+      "f1_macro_std": 0.03616945361702017,
+      "f1_per_class": {
+        "avancado": 0.7945205479452054,
+        "iniciante": 0.9548872180451128,
+        "intermediario": 0.8058608058608059
+      },
+      "confusion_matrix": [
+        [
+          87,
+          0,
+          27
+        ],
+        [
+          2,
+          127,
+          3
+        ],
+        [
+          16,
+          7,
+          110
+        ]
+      ],
+      "artifact": "random_forest_model.joblib"
+    },
+    "xgboost": {
+      "accuracy_mean": 0.8469473684210527,
+      "accuracy_std": 0.02962629662181125,
+      "f1_macro_mean": 0.8453724037798331,
+      "f1_macro_std": 0.026864322582720652,
+      "f1_per_class": {
+        "avancado": 0.8,
+        "iniciante": 0.9393939393939394,
+        "intermediario": 0.795774647887324
+      },
+      "confusion_matrix": [
+        [
+          84,
+          0,
+          30
+        ],
+        [
+          0,
+          124,
+          8
+        ],
+        [
+          12,
+          8,
+          113
+        ]
+      ],
+      "artifact": "xgboost_model.joblib"
+    }
+  }
+}
