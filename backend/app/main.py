@@ -6,7 +6,7 @@ from contextlib import asynccontextmanager
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from app.api.routes import sistema
+from app.api.routes import auth, sistema
 from app.core.config import settings
 from app.core.db import create_tables, database_is_up
 from app.ml.modelo import carregar_modelo
@@ -40,5 +40,6 @@ app.add_middleware(
 )
 for router in (
     sistema.router,
+    auth.router,
 ):
     app.include_router(router, prefix="/api/v1")
