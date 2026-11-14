@@ -1,0 +1,1185 @@
+{
+  "dataset": "dataset.csv",
+  "training_data_sha256": "fd5199946c37aa4a4b1181593452d7bb5d81bf7cc332c5e5099dfa581e3c9d54",
+  "rows": 379,
+  "fixed_features": [
+    "levantamento",
+    "carga"
+  ],
+  "optional_features": [
+    "idade",
+    "peso",
+    "altura_sintetica_cm",
+    "genero"
+  ],
+  "feature_subsets": 16,
+  "class_counts": {
+    "avancado": 114,
+    "iniciante": 132,
+    "intermediario": 133
+  },
+  "folds": 5,
+  "inner_folds": 3,
+  "outer_seeds": [
+    42,
+    7,
+    19,
+    31,
+    67,
+    101
+  ],
+  "selection_metric": "accuracy",
+  "versions": {
+    "scikit-learn": "1.9.1"
+  },
+  "models": {
+    "logistic_regression": {
+      "candidates_per_search": {
+        "current_features": 16,
+        "feature_selection": 256
+      },
+      "current_features": {
+        "accuracy_mean": 0.9282631578947368,
+        "accuracy_std_between_seeds": 0.008213127493193521,
+        "f1_macro_mean": 0.9265568985167068
+      },
+      "feature_selection": {
+        "accuracy_mean": 0.9221345029239766,
+        "accuracy_std_between_seeds": 0.008920328364511421,
+        "f1_macro_mean": 0.9202247214021838
+      },
+      "chosen_features_count": {
+        "levantamento+carga+idade+peso+genero": 9,
+        "levantamento+carga+peso+genero": 8,
+        "levantamento+carga+peso+altura_sintetica_cm+genero": 7,
+        "levantamento+carga+idade+peso+altura_sintetica_cm+genero": 6
+      },
+      "folds_with_altura": "13/30",
+      "full_data_choice": {
+        "features": "levantamento+carga+idade+peso+altura_sintetica_cm+genero",
+        "params": {
+          "classifier__C": 100,
+          "classifier__class_weight": "balanced"
+        },
+        "inner_cv_accuracy": 0.9261967254093237
+      },
+      "subset_ranking_inner_cv": [
+        {
+          "features": "levantamento+carga+idade+peso+altura_sintetica_cm+genero",
+          "inner_cv_accuracy": 0.9261967254093237,
+          "best_params": {
+            "classifier__C": 100,
+            "classifier__class_weight": "balanced"
+          }
+        },
+        {
+          "features": "levantamento+carga+idade+peso+genero",
+          "inner_cv_accuracy": 0.9261758946798316,
+          "best_params": {
+            "classifier__C": 30,
+            "classifier__class_weight": "balanced"
+          }
+        },
+        {
+          "features": "levantamento+carga+peso+genero",
+          "inner_cv_accuracy": 0.923530392034329,
+          "best_params": {
+            "classifier__C": 300,
+            "classifier__class_weight": "balanced"
+          }
+        },
+        {
+          "features": "levantamento+carga+peso+altura_sintetica_cm+genero",
+          "inner_cv_accuracy": 0.923530392034329,
+          "best_params": {
+            "classifier__C": 300,
+            "classifier__class_weight": "balanced"
+          }
+        },
+        {
+          "features": "levantamento+carga+peso+altura_sintetica_cm",
+          "inner_cv_accuracy": 0.8839520059992502,
+          "best_params": {
+            "classifier__C": 1000,
+            "classifier__class_weight": null
+          }
+        },
+        {
+          "features": "levantamento+carga+idade+peso",
+          "inner_cv_accuracy": 0.8760779902512185,
+          "best_params": {
+            "classifier__C": 1,
+            "classifier__class_weight": null
+          }
+        },
+        {
+          "features": "levantamento+carga+peso",
+          "inner_cv_accuracy": 0.8680998208557265,
+          "best_params": {
+            "classifier__C": 100,
+            "classifier__class_weight": "balanced"
+          }
+        },
+        {
+          "features": "levantamento+carga+idade+peso+altura_sintetica_cm",
+          "inner_cv_accuracy": 0.8655584718576844,
+          "best_params": {
+            "classifier__C": 300,
+            "classifier__class_weight": null
+          }
+        },
+        {
+          "features": "levantamento+carga+idade+altura_sintetica_cm+genero",
+          "inner_cv_accuracy": 0.849622963796192,
+          "best_params": {
+            "classifier__C": 100,
+            "classifier__class_weight": null
+          }
+        },
+        {
+          "features": "levantamento+carga+idade+genero",
+          "inner_cv_accuracy": 0.8470191226096738,
+          "best_params": {
+            "classifier__C": 30,
+            "classifier__class_weight": null
+          }
+        },
+        {
+          "features": "levantamento+carga+genero",
+          "inner_cv_accuracy": 0.8444152814231555,
+          "best_params": {
+            "classifier__C": 3,
+            "classifier__class_weight": null
+          }
+        },
+        {
+          "features": "levantamento+carga+altura_sintetica_cm+genero",
+          "inner_cv_accuracy": 0.8338541015706369,
+          "best_params": {
+            "classifier__C": 30,
+            "classifier__class_weight": null
+          }
+        },
+        {
+          "features": "levantamento+carga+idade+altura_sintetica_cm",
+          "inner_cv_accuracy": 0.614652335124776,
+          "best_params": {
+            "classifier__C": 10,
+            "classifier__class_weight": null
+          }
+        },
+        {
+          "features": "levantamento+carga+altura_sintetica_cm",
+          "inner_cv_accuracy": 0.6146315043952839,
+          "best_params": {
+            "classifier__C": 100,
+            "classifier__class_weight": null
+          }
+        },
+        {
+          "features": "levantamento+carga+idade",
+          "inner_cv_accuracy": 0.5250177061200684,
+          "best_params": {
+            "classifier__C": 0.1,
+            "classifier__class_weight": null
+          }
+        },
+        {
+          "features": "levantamento+carga",
+          "inner_cv_accuracy": 0.5118318543515393,
+          "best_params": {
+            "classifier__C": 0.1,
+            "classifier__class_weight": null
+          }
+        }
+      ],
+      "runs": [
+        {
+          "seed": 42,
+          "current_features": {
+            "accuracy_mean": 0.923438596491228,
+            "f1_macro_mean": 0.9215876539252275,
+            "f1_per_class": {
+              "avancado": 0.8878923766816144,
+              "iniciante": 0.9849624060150376,
+              "intermediario": 0.8921933085501859
+            },
+            "chosen_features_per_fold": [
+              "levantamento+carga+idade+peso+genero",
+              "levantamento+carga+idade+peso+genero",
+              "levantamento+carga+idade+peso+genero",
+              "levantamento+carga+idade+peso+genero",
+              "levantamento+carga+idade+peso+genero"
+            ]
+          },
+          "feature_selection": {
+            "accuracy_mean": 0.923438596491228,
+            "f1_macro_mean": 0.9215501051569476,
+            "f1_per_class": {
+              "avancado": 0.8878923766816144,
+              "iniciante": 0.9849624060150376,
+              "intermediario": 0.8921933085501859
+            },
+            "chosen_features_per_fold": [
+              "levantamento+carga+idade+peso+genero",
+              "levantamento+carga+peso+genero",
+              "levantamento+carga+peso+altura_sintetica_cm+genero",
+              "levantamento+carga+idade+peso+genero",
+              "levantamento+carga+peso+genero"
+            ]
+          }
+        },
+        {
+          "seed": 7,
+          "current_features": {
+            "accuracy_mean": 0.9339999999999999,
+            "f1_macro_mean": 0.9325312496939631,
+            "f1_per_class": {
+              "avancado": 0.9017857142857143,
+              "iniciante": 0.9886792452830189,
+              "intermediario": 0.9070631970260223
+            },
+            "chosen_features_per_fold": [
+              "levantamento+carga+idade+peso+genero",
+              "levantamento+carga+idade+peso+genero",
+              "levantamento+carga+idade+peso+genero",
+              "levantamento+carga+idade+peso+genero",
+              "levantamento+carga+idade+peso+genero"
+            ]
+          },
+          "feature_selection": {
+            "accuracy_mean": 0.9261052631578949,
+            "f1_macro_mean": 0.9242286597632509,
+            "f1_per_class": {
+              "avancado": 0.8858447488584474,
+              "iniciante": 0.9886792452830189,
+              "intermediario": 0.8978102189781022
+            },
+            "chosen_features_per_fold": [
+              "levantamento+carga+idade+peso+altura_sintetica_cm+genero",
+              "levantamento+carga+idade+peso+genero",
+              "levantamento+carga+idade+peso+genero",
+              "levantamento+carga+idade+peso+genero",
+              "levantamento+carga+peso+altura_sintetica_cm+genero"
+            ]
+          }
+        },
+        {
+          "seed": 19,
+          "current_features": {
+            "accuracy_mean": 0.9391228070175437,
+            "f1_macro_mean": 0.9373946023648909,
+            "f1_per_class": {
+              "avancado": 0.911504424778761,
+              "iniciante": 0.9886792452830189,
+              "intermediario": 0.9138576779026217
+            },
+            "chosen_features_per_fold": [
+              "levantamento+carga+idade+peso+genero",
+              "levantamento+carga+idade+peso+genero",
+              "levantamento+carga+idade+peso+genero",
+              "levantamento+carga+idade+peso+genero",
+              "levantamento+carga+idade+peso+genero"
+            ]
+          },
+          "feature_selection": {
+            "accuracy_mean": 0.9206666666666667,
+            "f1_macro_mean": 0.9183406384430306,
+            "f1_per_class": {
+              "avancado": 0.8839285714285714,
+              "iniciante": 0.9848484848484849,
+              "intermediario": 0.8888888888888888
+            },
+            "chosen_features_per_fold": [
+              "levantamento+carga+peso+genero",
+              "levantamento+carga+peso+altura_sintetica_cm+genero",
+              "levantamento+carga+idade+peso+genero",
+              "levantamento+carga+idade+peso+altura_sintetica_cm+genero",
+              "levantamento+carga+idade+peso+altura_sintetica_cm+genero"
+            ]
+          }
+        },
+        {
+          "seed": 31,
+          "current_features": {
+            "accuracy_mean": 0.9155087719298246,
+            "f1_macro_mean": 0.9133244052197224,
+            "f1_per_class": {
+              "avancado": 0.8711111111111111,
+              "iniciante": 0.9886792452830189,
+              "intermediario": 0.8805970149253731
+            },
+            "chosen_features_per_fold": [
+              "levantamento+carga+idade+peso+genero",
+              "levantamento+carga+idade+peso+genero",
+              "levantamento+carga+idade+peso+genero",
+              "levantamento+carga+idade+peso+genero",
+              "levantamento+carga+idade+peso+genero"
+            ]
+          },
+          "feature_selection": {
+            "accuracy_mean": 0.9050877192982456,
+            "f1_macro_mean": 0.902320172111159,
+            "f1_per_class": {
+              "avancado": 0.8533333333333334,
+              "iniciante": 0.9886792452830189,
+              "intermediario": 0.8656716417910447
+            },
+            "chosen_features_per_fold": [
+              "levantamento+carga+peso+altura_sintetica_cm+genero",
+              "levantamento+carga+peso+genero",
+              "levantamento+carga+peso+genero",
+              "levantamento+carga+peso+altura_sintetica_cm+genero",
+              "levantamento+carga+peso+altura_sintetica_cm+genero"
+            ]
+          }
+        },
+        {
+          "seed": 67,
+          "current_features": {
+            "accuracy_mean": 0.9287368421052632,
+            "f1_macro_mean": 0.9269583723540634,
+            "f1_per_class": {
+              "avancado": 0.8947368421052632,
+              "iniciante": 0.9886792452830189,
+              "intermediario": 0.8981132075471698
+            },
+            "chosen_features_per_fold": [
+              "levantamento+carga+idade+peso+genero",
+              "levantamento+carga+idade+peso+genero",
+              "levantamento+carga+idade+peso+genero",
+              "levantamento+carga+idade+peso+genero",
+              "levantamento+carga+idade+peso+genero"
+            ]
+          },
+          "feature_selection": {
+            "accuracy_mean": 0.9287368421052632,
+            "f1_macro_mean": 0.9269583723540634,
+            "f1_per_class": {
+              "avancado": 0.8947368421052632,
+              "iniciante": 0.9886792452830189,
+              "intermediario": 0.8981132075471698
+            },
+            "chosen_features_per_fold": [
+              "levantamento+carga+idade+peso+altura_sintetica_cm+genero",
+              "levantamento+carga+peso+genero",
+              "levantamento+carga+peso+genero",
+              "levantamento+carga+idade+peso+genero",
+              "levantamento+carga+idade+peso+genero"
+            ]
+          }
+        },
+        {
+          "seed": 101,
+          "current_features": {
+            "accuracy_mean": 0.9287719298245614,
+            "f1_macro_mean": 0.9275451075423732,
+            "f1_per_class": {
+              "avancado": 0.8977777777777778,
+              "iniciante": 0.9848484848484849,
+              "intermediario": 0.8996282527881041
+            },
+            "chosen_features_per_fold": [
+              "levantamento+carga+idade+peso+genero",
+              "levantamento+carga+idade+peso+genero",
+              "levantamento+carga+idade+peso+genero",
+              "levantamento+carga+idade+peso+genero",
+              "levantamento+carga+idade+peso+genero"
+            ]
+          },
+          "feature_selection": {
+            "accuracy_mean": 0.9287719298245614,
+            "f1_macro_mean": 0.9279503805846516,
+            "f1_per_class": {
+              "avancado": 0.9066666666666666,
+              "iniciante": 0.9772727272727273,
+              "intermediario": 0.8996282527881041
+            },
+            "chosen_features_per_fold": [
+              "levantamento+carga+idade+peso+altura_sintetica_cm+genero",
+              "levantamento+carga+idade+peso+genero",
+              "levantamento+carga+idade+peso+altura_sintetica_cm+genero",
+              "levantamento+carga+peso+genero",
+              "levantamento+carga+peso+altura_sintetica_cm+genero"
+            ]
+          }
+        }
+      ]
+    },
+    "svm": {
+      "candidates_per_search": {
+        "current_features": 40,
+        "feature_selection": 640
+      },
+      "current_features": {
+        "accuracy_mean": 0.923,
+        "accuracy_std_between_seeds": 0.012793864911678225,
+        "f1_macro_mean": 0.9211328775589195
+      },
+      "feature_selection": {
+        "accuracy_mean": 0.9239181286549707,
+        "accuracy_std_between_seeds": 0.00962899761955958,
+        "f1_macro_mean": 0.9221452175724889
+      },
+      "chosen_features_count": {
+        "levantamento+carga+idade+peso+genero": 12,
+        "levantamento+carga+peso+genero": 12,
+        "levantamento+carga+idade+genero": 3,
+        "levantamento+carga+peso+altura_sintetica_cm+genero": 2,
+        "levantamento+carga+idade+peso+altura_sintetica_cm+genero": 1
+      },
+      "folds_with_altura": "3/30",
+      "full_data_choice": {
+        "features": "levantamento+carga+idade+peso+genero",
+        "params": {
+          "classifier__C": 100,
+          "classifier__kernel": "linear"
+        },
+        "inner_cv_accuracy": 0.9288213973253342
+      },
+      "subset_ranking_inner_cv": [
+        {
+          "features": "levantamento+carga+idade+peso+genero",
+          "inner_cv_accuracy": 0.9288213973253342,
+          "best_params": {
+            "classifier__C": 100,
+            "classifier__kernel": "linear"
+          }
+        },
+        {
+          "features": "levantamento+carga+peso+genero",
+          "inner_cv_accuracy": 0.9261758946798316,
+          "best_params": {
+            "classifier__C": 100,
+            "classifier__kernel": "linear"
+          }
+        },
+        {
+          "features": "levantamento+carga+idade+genero",
+          "inner_cv_accuracy": 0.9209473815773027,
+          "best_params": {
+            "classifier__C": 512,
+            "classifier__gamma": 0.05,
+            "classifier__kernel": "rbf"
+          }
+        },
+        {
+          "features": "levantamento+carga+peso+altura_sintetica_cm+genero",
+          "inner_cv_accuracy": 0.9208848893888263,
+          "best_params": {
+            "classifier__C": 100,
+            "classifier__kernel": "linear"
+          }
+        },
+        {
+          "features": "levantamento+carga+idade+peso+altura_sintetica_cm+genero",
+          "inner_cv_accuracy": 0.9182602174728158,
+          "best_params": {
+            "classifier__C": 512,
+            "classifier__gamma": 0.05,
+            "classifier__kernel": "rbf"
+          }
+        },
+        {
+          "features": "levantamento+carga+idade+altura_sintetica_cm+genero",
+          "inner_cv_accuracy": 0.9182393867433237,
+          "best_params": {
+            "classifier__C": 128,
+            "classifier__gamma": 0.05,
+            "classifier__kernel": "rbf"
+          }
+        },
+        {
+          "features": "levantamento+carga+idade+peso",
+          "inner_cv_accuracy": 0.9103445402658,
+          "best_params": {
+            "classifier__C": 512,
+            "classifier__gamma": 0.25,
+            "classifier__kernel": "rbf"
+          }
+        },
+        {
+          "features": "levantamento+carga+peso",
+          "inner_cv_accuracy": 0.9103028788068158,
+          "best_params": {
+            "classifier__C": 512,
+            "classifier__gamma": 0.1,
+            "classifier__kernel": "rbf"
+          }
+        },
+        {
+          "features": "levantamento+carga+idade+peso+altura_sintetica_cm",
+          "inner_cv_accuracy": 0.9050118735158105,
+          "best_params": {
+            "classifier__C": 512,
+            "classifier__gamma": 0.025,
+            "classifier__kernel": "rbf"
+          }
+        },
+        {
+          "features": "levantamento+carga+peso+altura_sintetica_cm",
+          "inner_cv_accuracy": 0.8839103445402658,
+          "best_params": {
+            "classifier__C": 512,
+            "classifier__gamma": 0.01,
+            "classifier__kernel": "rbf"
+          }
+        },
+        {
+          "features": "levantamento+carga+genero",
+          "inner_cv_accuracy": 0.8680789901262341,
+          "best_params": {
+            "classifier__C": 512,
+            "classifier__gamma": 0.025,
+            "classifier__kernel": "rbf"
+          }
+        },
+        {
+          "features": "levantamento+carga+altura_sintetica_cm+genero",
+          "inner_cv_accuracy": 0.8470399533391659,
+          "best_params": {
+            "classifier__C": 128,
+            "classifier__gamma": 0.01,
+            "classifier__kernel": "rbf"
+          }
+        },
+        {
+          "features": "levantamento+carga+idade",
+          "inner_cv_accuracy": 0.7916302128900554,
+          "best_params": {
+            "classifier__C": 512,
+            "classifier__gamma": "scale",
+            "classifier__kernel": "rbf"
+          }
+        },
+        {
+          "features": "levantamento+carga+idade+altura_sintetica_cm",
+          "inner_cv_accuracy": 0.7493854934799816,
+          "best_params": {
+            "classifier__C": 128,
+            "classifier__gamma": 0.1,
+            "classifier__kernel": "rbf"
+          }
+        },
+        {
+          "features": "levantamento+carga",
+          "inner_cv_accuracy": 0.746885805940924,
+          "best_params": {
+            "classifier__C": 512,
+            "classifier__gamma": "scale",
+            "classifier__kernel": "rbf"
+          }
+        },
+        {
+          "features": "levantamento+carga+altura_sintetica_cm",
+          "inner_cv_accuracy": 0.7256592925884265,
+          "best_params": {
+            "classifier__C": 32,
+            "classifier__gamma": "scale",
+            "classifier__kernel": "rbf"
+          }
+        }
+      ],
+      "runs": [
+        {
+          "seed": 42,
+          "current_features": {
+            "accuracy_mean": 0.9287719298245614,
+            "f1_macro_mean": 0.9272824340912939,
+            "f1_per_class": {
+              "avancado": 0.8868778280542986,
+              "iniciante": 0.9924242424242424,
+              "intermediario": 0.9010989010989011
+            },
+            "chosen_features_per_fold": [
+              "levantamento+carga+idade+peso+genero",
+              "levantamento+carga+idade+peso+genero",
+              "levantamento+carga+idade+peso+genero",
+              "levantamento+carga+idade+peso+genero",
+              "levantamento+carga+idade+peso+genero"
+            ]
+          },
+          "feature_selection": {
+            "accuracy_mean": 0.9235438596491228,
+            "f1_macro_mean": 0.9218006195607737,
+            "f1_per_class": {
+              "avancado": 0.8839285714285714,
+              "iniciante": 0.9886792452830189,
+              "intermediario": 0.8921933085501859
+            },
+            "chosen_features_per_fold": [
+              "levantamento+carga+idade+peso+genero",
+              "levantamento+carga+peso+genero",
+              "levantamento+carga+peso+genero",
+              "levantamento+carga+idade+peso+genero",
+              "levantamento+carga+peso+genero"
+            ]
+          }
+        },
+        {
+          "seed": 7,
+          "current_features": {
+            "accuracy_mean": 0.9446315789473685,
+            "f1_macro_mean": 0.9438795495682026,
+            "f1_per_class": {
+              "avancado": 0.9251101321585903,
+              "iniciante": 0.9848484848484849,
+              "intermediario": 0.9213483146067416
+            },
+            "chosen_features_per_fold": [
+              "levantamento+carga+idade+peso+genero",
+              "levantamento+carga+idade+peso+genero",
+              "levantamento+carga+idade+peso+genero",
+              "levantamento+carga+idade+peso+genero",
+              "levantamento+carga+idade+peso+genero"
+            ]
+          },
+          "feature_selection": {
+            "accuracy_mean": 0.9341052631578947,
+            "f1_macro_mean": 0.9328477337497718,
+            "f1_per_class": {
+              "avancado": 0.905829596412556,
+              "iniciante": 0.9848484848484849,
+              "intermediario": 0.9077490774907749
+            },
+            "chosen_features_per_fold": [
+              "levantamento+carga+idade+peso+altura_sintetica_cm+genero",
+              "levantamento+carga+peso+genero",
+              "levantamento+carga+idade+peso+genero",
+              "levantamento+carga+idade+peso+genero",
+              "levantamento+carga+idade+peso+genero"
+            ]
+          }
+        },
+        {
+          "seed": 19,
+          "current_features": {
+            "accuracy_mean": 0.9179298245614035,
+            "f1_macro_mean": 0.9156981732349527,
+            "f1_per_class": {
+              "avancado": 0.8755760368663594,
+              "iniciante": 0.9848484848484849,
+              "intermediario": 0.8880866425992779
+            },
+            "chosen_features_per_fold": [
+              "levantamento+carga+idade+peso+genero",
+              "levantamento+carga+idade+peso+genero",
+              "levantamento+carga+idade+peso+genero",
+              "levantamento+carga+idade+peso+genero",
+              "levantamento+carga+idade+peso+genero"
+            ]
+          },
+          "feature_selection": {
+            "accuracy_mean": 0.9338596491228071,
+            "f1_macro_mean": 0.9324210863156461,
+            "f1_per_class": {
+              "avancado": 0.9009009009009009,
+              "iniciante": 0.9886792452830189,
+              "intermediario": 0.9077490774907749
+            },
+            "chosen_features_per_fold": [
+              "levantamento+carga+idade+peso+genero",
+              "levantamento+carga+idade+peso+genero",
+              "levantamento+carga+idade+genero",
+              "levantamento+carga+peso+genero",
+              "levantamento+carga+peso+genero"
+            ]
+          }
+        },
+        {
+          "seed": 31,
+          "current_features": {
+            "accuracy_mean": 0.9076491228070175,
+            "f1_macro_mean": 0.9050366300226509,
+            "f1_per_class": {
+              "avancado": 0.8584070796460177,
+              "iniciante": 0.9886792452830189,
+              "intermediario": 0.8689138576779026
+            },
+            "chosen_features_per_fold": [
+              "levantamento+carga+idade+peso+genero",
+              "levantamento+carga+idade+peso+genero",
+              "levantamento+carga+idade+peso+genero",
+              "levantamento+carga+idade+peso+genero",
+              "levantamento+carga+idade+peso+genero"
+            ]
+          },
+          "feature_selection": {
+            "accuracy_mean": 0.9103157894736842,
+            "f1_macro_mean": 0.9081010472242437,
+            "f1_per_class": {
+              "avancado": 0.8660714285714286,
+              "iniciante": 0.9848484848484849,
+              "intermediario": 0.8740740740740741
+            },
+            "chosen_features_per_fold": [
+              "levantamento+carga+idade+genero",
+              "levantamento+carga+idade+genero",
+              "levantamento+carga+idade+peso+genero",
+              "levantamento+carga+peso+altura_sintetica_cm+genero",
+              "levantamento+carga+peso+altura_sintetica_cm+genero"
+            ]
+          }
+        },
+        {
+          "seed": 67,
+          "current_features": {
+            "accuracy_mean": 0.9234736842105263,
+            "f1_macro_mean": 0.9212763692378811,
+            "f1_per_class": {
+              "avancado": 0.8839285714285714,
+              "iniciante": 0.9886792452830189,
+              "intermediario": 0.8921933085501859
+            },
+            "chosen_features_per_fold": [
+              "levantamento+carga+idade+peso+genero",
+              "levantamento+carga+idade+peso+genero",
+              "levantamento+carga+idade+peso+genero",
+              "levantamento+carga+idade+peso+genero",
+              "levantamento+carga+idade+peso+genero"
+            ]
+          },
+          "feature_selection": {
+            "accuracy_mean": 0.9155087719298246,
+            "f1_macro_mean": 0.9125945608735885,
+            "f1_per_class": {
+              "avancado": 0.8687782805429864,
+              "iniciante": 0.9886792452830189,
+              "intermediario": 0.8823529411764706
+            },
+            "chosen_features_per_fold": [
+              "levantamento+carga+peso+genero",
+              "levantamento+carga+idade+peso+genero",
+              "levantamento+carga+idade+peso+genero",
+              "levantamento+carga+idade+peso+genero",
+              "levantamento+carga+peso+genero"
+            ]
+          }
+        },
+        {
+          "seed": 101,
+          "current_features": {
+            "accuracy_mean": 0.9155438596491228,
+            "f1_macro_mean": 0.9136241091985356,
+            "f1_per_class": {
+              "avancado": 0.8755760368663594,
+              "iniciante": 0.9811320754716981,
+              "intermediario": 0.8840579710144928
+            },
+            "chosen_features_per_fold": [
+              "levantamento+carga+idade+peso+genero",
+              "levantamento+carga+idade+peso+genero",
+              "levantamento+carga+idade+peso+genero",
+              "levantamento+carga+idade+peso+genero",
+              "levantamento+carga+idade+peso+genero"
+            ]
+          },
+          "feature_selection": {
+            "accuracy_mean": 0.9261754385964911,
+            "f1_macro_mean": 0.9251062577109093,
+            "f1_per_class": {
+              "avancado": 0.8928571428571429,
+              "iniciante": 0.9848484848484849,
+              "intermediario": 0.8962962962962963
+            },
+            "chosen_features_per_fold": [
+              "levantamento+carga+peso+genero",
+              "levantamento+carga+peso+genero",
+              "levantamento+carga+idade+peso+genero",
+              "levantamento+carga+peso+genero",
+              "levantamento+carga+peso+genero"
+            ]
+          }
+        }
+      ]
+    },
+    "knn": {
+      "candidates_per_search": {
+        "current_features": 28,
+        "feature_selection": 448
+      },
+      "current_features": {
+        "accuracy_mean": 0.8473859649122807,
+        "accuracy_std_between_seeds": 0.012248192560172856,
+        "f1_macro_mean": 0.8447402093993147
+      },
+      "feature_selection": {
+        "accuracy_mean": 0.9098304093567251,
+        "accuracy_std_between_seeds": 0.004942534239759265,
+        "f1_macro_mean": 0.907889534579845
+      },
+      "chosen_features_count": {
+        "levantamento+carga+peso+genero": 27,
+        "levantamento+carga+peso": 3
+      },
+      "folds_with_altura": "0/30",
+      "full_data_choice": {
+        "features": "levantamento+carga+peso+genero",
+        "params": {
+          "classifier__n_neighbors": 3,
+          "classifier__p": 2,
+          "classifier__weights": "distance"
+        },
+        "inner_cv_accuracy": 0.9103653709952922
+      },
+      "subset_ranking_inner_cv": [
+        {
+          "features": "levantamento+carga+peso+genero",
+          "inner_cv_accuracy": 0.9103653709952922,
+          "best_params": {
+            "classifier__n_neighbors": 3,
+            "classifier__p": 2,
+            "classifier__weights": "distance"
+          }
+        },
+        {
+          "features": "levantamento+carga+peso",
+          "inner_cv_accuracy": 0.9077406990792817,
+          "best_params": {
+            "classifier__n_neighbors": 3,
+            "classifier__p": 2,
+            "classifier__weights": "distance"
+          }
+        },
+        {
+          "features": "levantamento+carga+genero",
+          "inner_cv_accuracy": 0.8760154980627423,
+          "best_params": {
+            "classifier__n_neighbors": 7,
+            "classifier__p": 1,
+            "classifier__weights": "uniform"
+          }
+        },
+        {
+          "features": "levantamento+carga+idade+genero",
+          "inner_cv_accuracy": 0.8495813023372079,
+          "best_params": {
+            "classifier__n_neighbors": 5,
+            "classifier__p": 1,
+            "classifier__weights": "distance"
+          }
+        },
+        {
+          "features": "levantamento+carga+idade+peso+genero",
+          "inner_cv_accuracy": 0.8337707786526685,
+          "best_params": {
+            "classifier__n_neighbors": 3,
+            "classifier__p": 1,
+            "classifier__weights": "distance"
+          }
+        },
+        {
+          "features": "levantamento+carga+idade+peso",
+          "inner_cv_accuracy": 0.831146106736658,
+          "best_params": {
+            "classifier__n_neighbors": 3,
+            "classifier__p": 1,
+            "classifier__weights": "distance"
+          }
+        },
+        {
+          "features": "levantamento+carga+peso+altura_sintetica_cm+genero",
+          "inner_cv_accuracy": 0.7996083822855476,
+          "best_params": {
+            "classifier__n_neighbors": 3,
+            "classifier__p": 1,
+            "classifier__weights": "distance"
+          }
+        },
+        {
+          "features": "levantamento+carga+peso+altura_sintetica_cm",
+          "inner_cv_accuracy": 0.7943173769945423,
+          "best_params": {
+            "classifier__n_neighbors": 3,
+            "classifier__p": 1,
+            "classifier__weights": "distance"
+          }
+        },
+        {
+          "features": "levantamento+carga+altura_sintetica_cm+genero",
+          "inner_cv_accuracy": 0.7916927050785318,
+          "best_params": {
+            "classifier__n_neighbors": 7,
+            "classifier__p": 1,
+            "classifier__weights": "distance"
+          }
+        },
+        {
+          "features": "levantamento+carga+idade+altura_sintetica_cm+genero",
+          "inner_cv_accuracy": 0.7731325251010289,
+          "best_params": {
+            "classifier__n_neighbors": 3,
+            "classifier__p": 1,
+            "classifier__weights": "distance"
+          }
+        },
+        {
+          "features": "levantamento+carga+idade",
+          "inner_cv_accuracy": 0.7704036995375579,
+          "best_params": {
+            "classifier__n_neighbors": 5,
+            "classifier__p": 2,
+            "classifier__weights": "distance"
+          }
+        },
+        {
+          "features": "levantamento+carga",
+          "inner_cv_accuracy": 0.7626546681664791,
+          "best_params": {
+            "classifier__n_neighbors": 13,
+            "classifier__p": 1,
+            "classifier__weights": "uniform"
+          }
+        },
+        {
+          "features": "levantamento+carga+idade+peso+altura_sintetica_cm",
+          "inner_cv_accuracy": 0.7571970170395367,
+          "best_params": {
+            "classifier__n_neighbors": 5,
+            "classifier__p": 1,
+            "classifier__weights": "distance"
+          }
+        },
+        {
+          "features": "levantamento+carga+idade+peso+altura_sintetica_cm+genero",
+          "inner_cv_accuracy": 0.7519476732075158,
+          "best_params": {
+            "classifier__n_neighbors": 5,
+            "classifier__p": 1,
+            "classifier__weights": "distance"
+          }
+        },
+        {
+          "features": "levantamento+carga+altura_sintetica_cm",
+          "inner_cv_accuracy": 0.7388451443569554,
+          "best_params": {
+            "classifier__n_neighbors": 23,
+            "classifier__p": 1,
+            "classifier__weights": "distance"
+          }
+        },
+        {
+          "features": "levantamento+carga+idade+altura_sintetica_cm",
+          "inner_cv_accuracy": 0.7229512977544474,
+          "best_params": {
+            "classifier__n_neighbors": 3,
+            "classifier__p": 1,
+            "classifier__weights": "distance"
+          }
+        }
+      ],
+      "runs": [
+        {
+          "seed": 42,
+          "current_features": {
+            "accuracy_mean": 0.8389824561403509,
+            "f1_macro_mean": 0.8357547130464065,
+            "f1_per_class": {
+              "avancado": 0.7818181818181819,
+              "iniciante": 0.951310861423221,
+              "intermediario": 0.7749077490774908
+            },
+            "chosen_features_per_fold": [
+              "levantamento+carga+idade+peso+genero",
+              "levantamento+carga+idade+peso+genero",
+              "levantamento+carga+idade+peso+genero",
+              "levantamento+carga+idade+peso+genero",
+              "levantamento+carga+idade+peso+genero"
+            ]
+          },
+          "feature_selection": {
+            "accuracy_mean": 0.9156140350877193,
+            "f1_macro_mean": 0.9143012092137587,
+            "f1_per_class": {
+              "avancado": 0.8839285714285714,
+              "iniciante": 0.9772727272727273,
+              "intermediario": 0.8814814814814815
+            },
+            "chosen_features_per_fold": [
+              "levantamento+carga+peso",
+              "levantamento+carga+peso",
+              "levantamento+carga+peso+genero",
+              "levantamento+carga+peso+genero",
+              "levantamento+carga+peso+genero"
+            ]
+          }
+        },
+        {
+          "seed": 7,
+          "current_features": {
+            "accuracy_mean": 0.8444561403508771,
+            "f1_macro_mean": 0.8413879038417174,
+            "f1_per_class": {
+              "avancado": 0.7911111111111111,
+              "iniciante": 0.9402985074626866,
+              "intermediario": 0.7924528301886793
+            },
+            "chosen_features_per_fold": [
+              "levantamento+carga+idade+peso+genero",
+              "levantamento+carga+idade+peso+genero",
+              "levantamento+carga+idade+peso+genero",
+              "levantamento+carga+idade+peso+genero",
+              "levantamento+carga+idade+peso+genero"
+            ]
+          },
+          "feature_selection": {
+            "accuracy_mean": 0.9129473684210525,
+            "f1_macro_mean": 0.9112614213391081,
+            "f1_per_class": {
+              "avancado": 0.8771929824561403,
+              "iniciante": 0.9811320754716981,
+              "intermediario": 0.8754716981132076
+            },
+            "chosen_features_per_fold": [
+              "levantamento+carga+peso+genero",
+              "levantamento+carga+peso+genero",
+              "levantamento+carga+peso+genero",
+              "levantamento+carga+peso+genero",
+              "levantamento+carga+peso+genero"
+            ]
+          }
+        },
+        {
+          "seed": 19,
+          "current_features": {
+            "accuracy_mean": 0.8467719298245614,
+            "f1_macro_mean": 0.8431762854639668,
+            "f1_per_class": {
+              "avancado": 0.7889908256880734,
+              "iniciante": 0.9548872180451128,
+              "intermediario": 0.7883211678832117
+            },
+            "chosen_features_per_fold": [
+              "levantamento+carga+idade+peso+genero",
+              "levantamento+carga+idade+peso+genero",
+              "levantamento+carga+idade+peso+genero",
+              "levantamento+carga+idade+peso+genero",
+              "levantamento+carga+idade+peso+genero"
+            ]
+          },
+          "feature_selection": {
+            "accuracy_mean": 0.9021052631578949,
+            "f1_macro_mean": 0.8994794802925729,
+            "f1_per_class": {
+              "avancado": 0.852017937219731,
+              "iniciante": 0.9848484848484849,
+              "intermediario": 0.8634686346863468
+            },
+            "chosen_features_per_fold": [
+              "levantamento+carga+peso+genero",
+              "levantamento+carga+peso+genero",
+              "levantamento+carga+peso+genero",
+              "levantamento+carga+peso+genero",
+              "levantamento+carga+peso+genero"
+            ]
+          }
+        },
+        {
+          "seed": 31,
+          "current_features": {
+            "accuracy_mean": 0.8469473684210526,
+            "f1_macro_mean": 0.8447608125011012,
+            "f1_per_class": {
+              "avancado": 0.7982062780269058,
+              "iniciante": 0.9433962264150944,
+              "intermediario": 0.7925925925925926
+            },
+            "chosen_features_per_fold": [
+              "levantamento+carga+idade+peso+genero",
+              "levantamento+carga+idade+peso+genero",
+              "levantamento+carga+idade+peso+genero",
+              "levantamento+carga+idade+peso+genero",
+              "levantamento+carga+idade+peso+genero"
+            ]
+          },
+          "feature_selection": {
+            "accuracy_mean": 0.9076842105263158,
+            "f1_macro_mean": 0.9058408345593556,
+            "f1_per_class": {
+              "avancado": 0.8771929824561403,
+              "iniciante": 0.9735849056603774,
+              "intermediario": 0.8679245283018868
+            },
+            "chosen_features_per_fold": [
+              "levantamento+carga+peso+genero",
+              "levantamento+carga+peso+genero",
+              "levantamento+carga+peso+genero",
+              "levantamento+carga+peso+genero",
+              "levantamento+carga+peso+genero"
+            ]
+          }
+        },
+        {
+          "seed": 67,
+          "current_features": {
+            "accuracy_mean": 0.8708070175438596,
+            "f1_macro_mean": 0.8680252497579124,
+            "f1_per_class": {
+              "avancado": 0.8207547169811321,
+              "iniciante": 0.9552238805970149,
+              "intermediario": 0.8273381294964028
+            },
+            "chosen_features_per_fold": [
+              "levantamento+carga+idade+peso+genero",
+              "levantamento+carga+idade+peso+genero",
+              "levantamento+carga+idade+peso+genero",
+              "levantamento+carga+idade+peso+genero",
+              "levantamento+carga+idade+peso+genero"
+            ]
+          },
+          "feature_selection": {
+            "accuracy_mean": 0.9076491228070175,
+            "f1_macro_mean": 0.9051265174040658,
+            "f1_per_class": {
+              "avancado": 0.8597285067873304,
+              "iniciante": 0.9848484848484849,
+              "intermediario": 0.8717948717948718
+            },
+            "chosen_features_per_fold": [
+              "levantamento+carga+peso+genero",
+              "levantamento+carga+peso+genero",
+              "levantamento+carga+peso+genero",
+              "levantamento+carga+peso",
+              "levantamento+carga+peso+genero"
+            ]
+          }
+        },
+        {
+          "seed": 101,
+          "current_features": {
+            "accuracy_mean": 0.8363508771929824,
+            "f1_macro_mean": 0.8353362917847837,
+            "f1_per_class": {
+              "avancado": 0.801762114537445,
+              "iniciante": 0.9111969111969112,
+              "intermediario": 0.7941176470588235
+            },
+            "chosen_features_per_fold": [
+              "levantamento+carga+idade+peso+genero",
+              "levantamento+carga+idade+peso+genero",
+              "levantamento+carga+idade+peso+genero",
+              "levantamento+carga+idade+peso+genero",
+              "levantamento+carga+idade+peso+genero"
+            ]
+          },
+          "feature_selection": {
+            "accuracy_mean": 0.9129824561403508,
+            "f1_macro_mean": 0.9113277446702088,
+            "f1_per_class": {
+              "avancado": 0.8820960698689956,
+              "iniciante": 0.9735849056603774,
+              "intermediario": 0.8787878787878788
+            },
+            "chosen_features_per_fold": [
+              "levantamento+carga+peso+genero",
+              "levantamento+carga+peso+genero",
+              "levantamento+carga+peso+genero",
+              "levantamento+carga+peso+genero",
+              "levantamento+carga+peso+genero"
+            ]
+          }
+        }
+      ]
+    }
+  }
+}
