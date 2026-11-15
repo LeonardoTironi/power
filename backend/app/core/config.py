@@ -13,8 +13,8 @@ class Settings(BaseSettings):
     app_name: str = "Scouter Power API"
     cors_origins: Annotated[list[str], NoDecode] = ["http://localhost:5173"]
     database_url: str = "postgresql+psycopg://scouter:scouter@localhost:5432/scouter_power"
-    model_path: str = "data/knn_model.joblib"
-    model_version: str = "knn-v1"
+    model_path: str = "data/logistic_regression_tuned_model.joblib"
+    model_version: str = "logistic_regression_tuned-v1"
     jwt_secret: str = "segredo-desenvolvimento-trocar-em-producao"
     jwt_expira_minutos: int = 60
 

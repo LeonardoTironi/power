@@ -12,8 +12,8 @@ from collections.abc import Callable, Iterator
 os.environ["DATABASE_URL"] = "sqlite://"
 os.environ["JWT_SECRET"] = "segredo-de-teste-com-mais-de-32-bytes-para-hs256"
 # Fixa o modelo para os testes, sem depender do .env local de cada máquina.
-os.environ["MODEL_PATH"] = "data/knn_model.joblib"
-os.environ["MODEL_VERSION"] = "knn-v1"
+os.environ["MODEL_PATH"] = "data/logistic_regression_tuned_model.joblib"
+os.environ["MODEL_VERSION"] = "logistic_regression_tuned-v1"
 
 import pytest  # noqa: E402
 from fastapi.testclient import TestClient  # noqa: E402
