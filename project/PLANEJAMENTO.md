@@ -10,7 +10,7 @@ Escolha uma tarefa pendente da seção 5. Atualize seu estado e acrescente uma e
 
 | Sprint | Tarefa | Estado | Próximo passo |
 |---|---|---|---|
-| 1 | Treinar e comparar ao menos dois algoritmos | Em andamento | Ajustar hiperparâmetros, treinar regressão logística e SVM e testar a redução das variáveis do dataset. |
+| 1 | Treinar e comparar ao menos dois algoritmos | Concluída | Cinco algoritmos comparados. A regressão logística é a candidata para a API, a confirmar no teste separado do RNF03. |
 | 1 | RNF03 · Validar a qualidade do modelo | A fazer | Medir acurácia e F1 macro no conjunto de teste, com meta de 80% para ambas, e reportar desempenho por classe. |
 | 1 | RNF02 · Medir o desempenho da API | A fazer | Medir o tempo de resposta da avaliação, com meta de 4 s em 95% das requisições em rede 4G. |
 
@@ -21,3 +21,4 @@ Escolha uma tarefa pendente da seção 5. Atualize seu estado e acrescente uma e
 - **12/11/2026** — A busca ampliada de regressão logística e SVM avaliou 130 configurações em seis repetições de validação cruzada aninhada. A acurácia média passou de 92,70% para 92,74% na regressão logística e de 91,86% para 92,21% no SVM. A regressão logística obteve o maior F1 macro médio, de 92,57%, e segue como primeira candidata ao teste separado. As métricas por semente e os parâmetros dos modelos exportados estão no [relatório](../backend/data/logistic_svm_tuning.json).
 - **13/11/2026** — Teste da redução das variáveis do dataset. Para cada modelo, 16 subconjuntos de variáveis foram avaliados, sempre com levantamento e carga, em validação cruzada aninhada com seis sementes. A acurácia do KNN subiu de 84,74% para 90,98%. A regressão logística caiu de 92,83% para 92,21%, e o SVM ficou estável, de 92,30% para 92,39%. A regressão logística segue com todas as variáveis. Resultados em [feature_selection_tuning.json](../backend/data/feature_selection_tuning.json).
 - **14/11/2026** — Mantidos os arquivos Joblib do KNN usado pela API, da regressão logística ajustada e do SVM ajustado. Removidas as duas versões exportadas de Random Forest e XGBoost e a variante ajustada do KNN, que teve acurácia menor na comparação. Os relatórios anteriores registram o histórico dos experimentos.
+- **16/11/2026** — Preparados três scripts de treino no backend para a entrega da atividade, com versões de dependências fixadas e comandos no README. Os modelos gerados em uma pasta de verificação produziram as mesmas previsões que os arquivos versionados em todos os 379 registros.

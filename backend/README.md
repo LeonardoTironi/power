@@ -25,6 +25,9 @@ pip install -r requirements.txt
 pip install -r requirements-dev.txt
 ```
 
+`requirements-ml.txt` e `requirements-training.txt` são usados só para treinar e
+comparar modelos (veja a seção "Modelos de força").
+
 ## Configuração
 
 Copie o arquivo de exemplo e ajuste os valores:
@@ -152,3 +155,54 @@ Os testes ficam em `tests/`:
 
 `tests/conftest.py` fixa o modelo e o banco de teste, então os resultados não
 dependem do `.env` local.
+
+## Modelos de força
+
+Os três modelos estão em `data/`:
+
+- KNN (`knn_model.joblib`).
+- Regressão logística (`logistic_regression_tuned_model.joblib`), usado pela API por padrão.
+- SVM (`svm_tuned_model.joblib`).
+
+Para reproduzir os três modelos, use Python 3.12 em um ambiente virtual e
+execute na pasta `backend`:
+
+```bash
+python -m pip install -r requirements-training.txt
+python train_model.py
+python train_logistic_regression.py
+python train_svm.py
+```
+
+Cada script lê `data/dataset.csv` e grava o pipeline treinado no arquivo Joblib
+correspondente. Use `--dataset` para escolher outro CSV e `--output` para gerar
+uma cópia em outro caminho. O KNN usa 80% dos registros para treino, com semente
+42. A regressão logística e o SVM usam todo o CSV com os hiperparâmetros
+selecionados no experimento.
+
+Para experimentar a regressão logística ou o SVM, execute a partir da pasta
+`backend` com as dependências de treino instaladas:
+
+```python
+import joblib
+import pandas as pd
+
+modelo = joblib.load("data/logistic_regression_tuned_model.joblib")
+amostra = pd.DataFrame([{
+    "levantamento": "supino", "genero": "m", "idade": 30,
+    "peso": 80.0, "carga": 100.0,
+}])
+print(modelo.predict(amostra)[0])
+```
+
+Para reproduzir os experimentos, instale `requirements-ml.txt` na pasta
+`backend`. Execute `python tune_logistic_svm.py` para comparar as buscas inicial e
+ampliada de regressão logística e SVM em seis sementes. As duas buscas usam
+as mesmas divisões externas em cada semente. O relatório
+`data/logistic_svm_tuning.json` inclui métricas por semente e os parâmetros
+dos modelos exportados após o ajuste com o CSV completo.
+
+Os relatórios `data/model_comparison.json` e `data/model_tuning.json`
+registram os experimentos anteriores. Para reproduzi-los, execute
+`python compare_models.py --output-dir ../tmp/model-comparison` ou
+`python tune_models.py --output-dir ../tmp/model-tuning`.
