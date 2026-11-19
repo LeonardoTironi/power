@@ -12,7 +12,7 @@ Escolha uma tarefa pendente da seção 5. Atualize seu estado e acrescente uma e
 |---|---|---|---|
 | 1 | Treinar e comparar ao menos dois algoritmos | Concluída | Cinco algoritmos comparados. A regressão logística é a candidata para a API, a confirmar no teste separado do RNF03. |
 | 1 | RNF03 · Validar a qualidade do modelo | A fazer | Medir acurácia e F1 macro no conjunto de teste, com meta de 80% para ambas, e reportar desempenho por classe. |
-| 1 | RNF02 · Medir o desempenho da API | A fazer | Medir o tempo de resposta da avaliação, com meta de 4 s em 95% das requisições em rede 4G. |
+| 1 | RNF02 · Medir o desempenho da API | Em andamento | Meta atingida com rede 4G estimada. Para o aceite, repetir a medição com a API publicada e um aparelho em 4G real ou com throttling do navegador. |
 
 ## Registro de progresso
 
@@ -22,3 +22,4 @@ Escolha uma tarefa pendente da seção 5. Atualize seu estado e acrescente uma e
 - **13/11/2026** — Teste da redução das variáveis do dataset. Para cada modelo, 16 subconjuntos de variáveis foram avaliados, sempre com levantamento e carga, em validação cruzada aninhada com seis sementes. A acurácia do KNN subiu de 84,74% para 90,98%. A regressão logística caiu de 92,83% para 92,21%, e o SVM ficou estável, de 92,30% para 92,39%. A regressão logística segue com todas as variáveis. Resultados em [feature_selection_tuning.json](../backend/data/feature_selection_tuning.json).
 - **14/11/2026** — Mantidos os arquivos Joblib do KNN usado pela API, da regressão logística ajustada e do SVM ajustado. Removidas as duas versões exportadas de Random Forest e XGBoost e a variante ajustada do KNN, que teve acurácia menor na comparação. Os relatórios anteriores registram o histórico dos experimentos.
 - **16/11/2026** — Preparados três scripts de treino no backend para a entrega da atividade, com versões de dependências fixadas e comandos no README. Os modelos gerados em uma pasta de verificação produziram as mesmas previsões que os arquivos versionados em todos os 379 registros.
+- **19/11/2026** — Medido o tempo de resposta de `POST /api/v1/avaliacoes` (RNF02) com o script `benchmark_api.py`: 1.000 requisições por cenário, anônimas e autenticadas, com 1 e 10 simultâneas, API e PostgreSQL 17 locais. O p95 local ficou entre 16,5 ms e 250,7 ms. Somando a rede estimada do perfil Slow 4G do Lighthouse com conexão nova, o p95 máximo foi de 859,9 ms; no perfil 4G degradado (400 ms de RTT), de 1.886,3 ms. Todas as requisições ficaram abaixo de 4 s. Método e números no [README do backend](../backend/README.md#desempenho-rnf02) e em [benchmark_api.json](../backend/data/benchmark_api.json). Falta confirmar com a API publicada e uma conexão 4G real.

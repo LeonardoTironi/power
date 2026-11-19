@@ -1,0 +1,243 @@
+{
+  "requisito": "RNF02: resposta em até 4 s em 95% das requisições, em conexão 4G",
+  "data": "2026-11-19T13:53:54+00:00",
+  "endpoint": "POST /api/v1/avaliacoes",
+  "versao_modelo": "logistic_regression_tuned-v1",
+  "banco_disponivel": true,
+  "ambiente": {
+    "python": "3.13.14",
+    "sistema": "Windows-11-10.0.26200-SP0",
+    "processador": "Intel64 Family 6 Model 186 Stepping 2, GenuineIntel"
+  },
+  "metodo": {
+    "requisicoes_por_cenario": 1000,
+    "aquecimento_descartado": 50,
+    "semente": 42,
+    "percentil": "posto mais próximo",
+    "medicao": "Tempo no cliente, do envio ao fim da leitura da resposta, com a API e o cliente na mesma máquina.",
+    "rede": "Custo de rede estimado e somado a cada medição: 1 RTT por requisição em conexão reaproveitada, mais 3 RTT (DNS, TCP e TLS 1.3) em conexão nova, e o tempo de transmissão dos bytes da requisição e da resposta.",
+    "perfis": {
+      "4g_lento": "Throttling móvel padrão do Lighthouse (Slow 4G): 150 ms de RTT, 1.638,4 kbit/s de descida e 750 kbit/s de subida.",
+      "4g_degradado": "Cenário pessimista: 400 ms de RTT, 400 kbit/s de descida e 200 kbit/s de subida."
+    }
+  },
+  "meta": {
+    "segundos": 4.0,
+    "percentil": 95
+  },
+  "cenarios": [
+    {
+      "avaliacao": "anonima",
+      "concorrencia": 1,
+      "requisicoes": 1000,
+      "vazao_req_s": 95.1,
+      "bytes_enviados_medio": 335,
+      "bytes_recebidos_medio": 650,
+      "servidor_local": {
+        "media_ms": 10.12,
+        "p50_ms": 8.89,
+        "p95_ms": 16.51,
+        "p99_ms": 26.92,
+        "max_ms": 39.04
+      },
+      "estimativa_4g": {
+        "4g_lento_conexao_reaproveitada": {
+          "media_ms": 166.86,
+          "p50_ms": 165.61,
+          "p95_ms": 173.23,
+          "p99_ms": 183.68,
+          "max_ms": 195.83,
+          "percentual_ate_4s": 100.0,
+          "atende_rnf02": true
+        },
+        "4g_lento_conexao_nova": {
+          "media_ms": 616.86,
+          "p50_ms": 615.61,
+          "p95_ms": 623.23,
+          "p99_ms": 633.68,
+          "max_ms": 645.83,
+          "percentual_ate_4s": 100.0,
+          "atende_rnf02": true
+        },
+        "4g_degradado_conexao_reaproveitada": {
+          "media_ms": 436.49,
+          "p50_ms": 435.3,
+          "p95_ms": 442.87,
+          "p99_ms": 453.4,
+          "max_ms": 465.6,
+          "percentual_ate_4s": 100.0,
+          "atende_rnf02": true
+        },
+        "4g_degradado_conexao_nova": {
+          "media_ms": 1636.49,
+          "p50_ms": 1635.3,
+          "p95_ms": 1642.87,
+          "p99_ms": 1653.4,
+          "max_ms": 1665.6,
+          "percentual_ate_4s": 100.0,
+          "atende_rnf02": true
+        }
+      }
+    },
+    {
+      "avaliacao": "anonima",
+      "concorrencia": 10,
+      "requisicoes": 1000,
+      "vazao_req_s": 120.6,
+      "bytes_enviados_medio": 335,
+      "bytes_recebidos_medio": 650,
+      "servidor_local": {
+        "media_ms": 78.87,
+        "p50_ms": 71.92,
+        "p95_ms": 114.54,
+        "p99_ms": 249.42,
+        "max_ms": 319.27
+      },
+      "estimativa_4g": {
+        "4g_lento_conexao_reaproveitada": {
+          "media_ms": 235.61,
+          "p50_ms": 228.67,
+          "p95_ms": 271.2,
+          "p99_ms": 406.17,
+          "max_ms": 476.09,
+          "percentual_ate_4s": 100.0,
+          "atende_rnf02": true
+        },
+        "4g_lento_conexao_nova": {
+          "media_ms": 685.61,
+          "p50_ms": 678.67,
+          "p95_ms": 721.2,
+          "p99_ms": 856.17,
+          "max_ms": 926.09,
+          "percentual_ate_4s": 100.0,
+          "atende_rnf02": true
+        },
+        "4g_degradado_conexao_reaproveitada": {
+          "media_ms": 505.25,
+          "p50_ms": 498.24,
+          "p95_ms": 540.62,
+          "p99_ms": 675.82,
+          "max_ms": 745.97,
+          "percentual_ate_4s": 100.0,
+          "atende_rnf02": true
+        },
+        "4g_degradado_conexao_nova": {
+          "media_ms": 1705.25,
+          "p50_ms": 1698.24,
+          "p95_ms": 1740.62,
+          "p99_ms": 1875.82,
+          "max_ms": 1945.97,
+          "percentual_ate_4s": 100.0,
+          "atende_rnf02": true
+        }
+      }
+    },
+    {
+      "avaliacao": "autenticada",
+      "concorrencia": 1,
+      "requisicoes": 1000,
+      "vazao_req_s": 51.4,
+      "bytes_enviados_medio": 547,
+      "bytes_recebidos_medio": 684,
+      "servidor_local": {
+        "media_ms": 18.89,
+        "p50_ms": 17.97,
+        "p95_ms": 28.45,
+        "p99_ms": 39.14,
+        "max_ms": 62.84
+      },
+      "estimativa_4g": {
+        "4g_lento_conexao_reaproveitada": {
+          "media_ms": 178.06,
+          "p50_ms": 177.13,
+          "p95_ms": 187.61,
+          "p99_ms": 198.35,
+          "max_ms": 221.95,
+          "percentual_ate_4s": 100.0,
+          "atende_rnf02": true
+        },
+        "4g_lento_conexao_nova": {
+          "media_ms": 628.06,
+          "p50_ms": 627.13,
+          "p95_ms": 637.61,
+          "p99_ms": 648.35,
+          "max_ms": 671.95,
+          "percentual_ate_4s": 100.0,
+          "atende_rnf02": true
+        },
+        "4g_degradado_conexao_reaproveitada": {
+          "media_ms": 454.43,
+          "p50_ms": 453.51,
+          "p95_ms": 463.98,
+          "p99_ms": 474.65,
+          "max_ms": 498.14,
+          "percentual_ate_4s": 100.0,
+          "atende_rnf02": true
+        },
+        "4g_degradado_conexao_nova": {
+          "media_ms": 1654.43,
+          "p50_ms": 1653.51,
+          "p95_ms": 1663.98,
+          "p99_ms": 1674.65,
+          "max_ms": 1698.14,
+          "percentual_ate_4s": 100.0,
+          "atende_rnf02": true
+        }
+      }
+    },
+    {
+      "avaliacao": "autenticada",
+      "concorrencia": 10,
+      "requisicoes": 1000,
+      "vazao_req_s": 64.3,
+      "bytes_enviados_medio": 547,
+      "bytes_recebidos_medio": 684,
+      "servidor_local": {
+        "media_ms": 150.45,
+        "p50_ms": 133.07,
+        "p95_ms": 250.66,
+        "p99_ms": 457.34,
+        "max_ms": 521.73
+      },
+      "estimativa_4g": {
+        "4g_lento_conexao_reaproveitada": {
+          "media_ms": 309.62,
+          "p50_ms": 292.24,
+          "p95_ms": 409.86,
+          "p99_ms": 616.52,
+          "max_ms": 680.88,
+          "percentual_ate_4s": 100.0,
+          "atende_rnf02": true
+        },
+        "4g_lento_conexao_nova": {
+          "media_ms": 759.62,
+          "p50_ms": 742.24,
+          "p95_ms": 859.86,
+          "p99_ms": 1066.52,
+          "max_ms": 1130.88,
+          "percentual_ate_4s": 100.0,
+          "atende_rnf02": true
+        },
+        "4g_degradado_conexao_reaproveitada": {
+          "media_ms": 585.99,
+          "p50_ms": 568.66,
+          "p95_ms": 686.3,
+          "p99_ms": 892.94,
+          "max_ms": 957.17,
+          "percentual_ate_4s": 100.0,
+          "atende_rnf02": true
+        },
+        "4g_degradado_conexao_nova": {
+          "media_ms": 1785.99,
+          "p50_ms": 1768.66,
+          "p95_ms": 1886.3,
+          "p99_ms": 2092.94,
+          "max_ms": 2157.17,
+          "percentual_ate_4s": 100.0,
+          "atende_rnf02": true
+        }
+      }
+    }
+  ],
+  "atende_rnf02": true
+}

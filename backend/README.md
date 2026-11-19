@@ -156,6 +156,46 @@ Os testes ficam em `tests/`:
 `tests/conftest.py` fixa o modelo e o banco de teste, então os resultados não
 dependem do `.env` local.
 
+## Desempenho (RNF02)
+
+A meta é responder a uma avaliação em até 4 s em 95% das requisições, em conexão
+móvel 4G. `benchmark_api.py` mede `POST /api/v1/avaliacoes` em uma API já em
+execução e grava o relatório em `data/benchmark_api.json`. Ele usa o `httpx` do
+`requirements-dev.txt`.
+
+```bash
+docker compose up -d db
+uvicorn app.main:app --port 8000
+# em outro terminal:
+python benchmark_api.py --url http://127.0.0.1:8000
+```
+
+Método:
+
+- 50 requisições de aquecimento descartadas e 1.000 medidas por cenário, com
+  entradas aleatórias válidas (semente 42).
+- Cenários: avaliação anônima e autenticada (gravada no PostgreSQL), com 1 e 10
+  requisições simultâneas. O usuário temporário é excluído ao final.
+- O tempo é medido no cliente, com a API na mesma máquina. A rede 4G é estimada e
+  somada a cada medição: 1 RTT por requisição em conexão reaproveitada, mais 3 RTT
+  (DNS, TCP e TLS 1.3) em conexão nova, e o tempo de transmissão dos bytes.
+- Perfis: Slow 4G do Lighthouse (150 ms de RTT, 1,6 Mbit/s de descida, 750 kbit/s
+  de subida) e um cenário degradado (400 ms de RTT, 400/200 kbit/s).
+
+Resultado de 19/11/2026 (Windows 11, Python 3.13, uvicorn com um processo,
+PostgreSQL 17 em Docker), p95 em ms:
+
+| Avaliação | Simultâneas | Local | Slow 4G, conexão nova | 4G degradado, conexão nova |
+|---|---|---|---|---|
+| Anônima | 1 | 16,5 | 623,2 | 1.642,9 |
+| Anônima | 10 | 114,5 | 721,2 | 1.740,6 |
+| Autenticada | 1 | 28,5 | 637,6 | 1.664,0 |
+| Autenticada | 10 | 250,7 | 859,9 | 1.886,3 |
+
+Todas as requisições ficaram abaixo de 4 s em todos os cenários. A rede 4G é um
+modelo, não uma medição em aparelho real, e a API não estava em servidor de
+produção.
+
 ## Modelos de força
 
 Os três modelos estão em `data/`:
