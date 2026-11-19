@@ -1,24 +1,53 @@
 # Scouter Power
 
 Aplicação web que estima a carga máxima para uma repetição (1RM) e classifica o
-nível de força em musculação como iniciante, intermediário ou avançado, com um
-modelo de Machine Learning.
+nível de força em musculação como iniciante, intermediário ou avançado. A
+classificação usa um modelo de Machine Learning treinado com dados de supino,
+agachamento e levantamento terra.
 
 Projeto da disciplina Construção de Aplicações Utilizando Frameworks, do curso
 de Análise e Desenvolvimento de Sistemas do Instituto Federal do Paraná.
 
-## Organização
+## Estrutura
 
-O desenvolvimento usa Scrum, com uma etapa de preparação e duas sprints de duas
-semanas:
+| Pasta | Conteúdo |
+|---|---|
+| `backend/` | API em FastAPI, banco PostgreSQL, modelos de classificação e scripts de treino |
+| `project/` | Requisitos, tecnologias, planejamento e registro de progresso |
 
-| Etapa | Período | Entregas |
-|---|---|---|
-| Preparação | 30/10 a 06/11 | Dataset, repositório, backlog e papéis |
-| Sprint 1 | 06/11 a 20/11 | Backend, treino e comparação dos modelos, medição de desempenho |
-| Sprint 2 | 20/11 a 04/12 | Integração da interface, correção de falhas e testes finais |
+O planejamento das sprints e o registro de progresso estão em
+[project/PLANEJAMENTO.md](project/PLANEJAMENTO.md).
 
-A pasta `project/` guarda os requisitos, as tecnologias e o planejamento.
+## Tecnologias
+
+- **Backend:** Python, FastAPI, Uvicorn, Pydantic e SQLModel.
+- **Persistência:** PostgreSQL.
+- **Machine Learning:** scikit-learn, pandas e Joblib.
+- **Testes:** pytest.
+
+## Como executar o backend
+
+Com Python 3.12 e Docker instalados, execute na pasta `backend`:
+
+```bash
+python -m venv venv
+venv\Scripts\activate        # Linux/Mac: source venv/bin/activate
+pip install -r requirements.txt
+cp .env.example .env
+docker compose up -d
+uvicorn app.main:app --reload
+```
+
+A API fica em `http://localhost:8000` e a documentação interativa em
+`http://localhost:8000/docs`. Configuração, endpoints, testes, desempenho e
+modelos estão no [README do backend](backend/README.md).
+
+## Modelos
+
+A API usa um SVM ajustado (`backend/data/svm_tuned_model.joblib`). Também ficam
+no repositório o KNN e a regressão logística. Os três passam de 80% de acurácia
+e F1 macro no conjunto de teste separado (RNF03). Os resultados e os comandos
+para reproduzir o treino estão no [README do backend](backend/README.md#modelos-de-força).
 
 ## Equipe
 
