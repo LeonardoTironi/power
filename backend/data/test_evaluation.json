@@ -1,0 +1,171 @@
+{
+  "dataset": "dataset.csv",
+  "rows": 379,
+  "split": {
+    "test_size": 0.2,
+    "random_state": 42,
+    "train_rows": 303,
+    "test_rows": 76,
+    "test_class_counts": {
+      "iniciante": 27,
+      "intermediario": 28,
+      "avancado": 21
+    }
+  },
+  "target": {
+    "accuracy": 0.8,
+    "f1_macro": 0.8
+  },
+  "versions": {
+    "scikit-learn": "1.9.1"
+  },
+  "models": {
+    "logistic_regression": {
+      "accuracy": 0.9078947368421053,
+      "f1_macro": 0.9047094990829007,
+      "per_class": {
+        "iniciante": {
+          "precision": 0.9642857142857143,
+          "recall": 1.0,
+          "f1-score": 0.9818181818181818,
+          "support": 27.0
+        },
+        "intermediario": {
+          "precision": 0.9565217391304348,
+          "recall": 0.7857142857142857,
+          "f1-score": 0.8627450980392157,
+          "support": 28.0
+        },
+        "avancado": {
+          "precision": 0.8,
+          "recall": 0.9523809523809523,
+          "f1-score": 0.8695652173913043,
+          "support": 21.0
+        }
+      },
+      "confusion_matrix": {
+        "labels": [
+          "iniciante",
+          "intermediario",
+          "avancado"
+        ],
+        "matrix": [
+          [
+            27,
+            0,
+            0
+          ],
+          [
+            1,
+            22,
+            5
+          ],
+          [
+            0,
+            1,
+            20
+          ]
+        ]
+      },
+      "meets_rnf03": true
+    },
+    "svm": {
+      "accuracy": 0.9605263157894737,
+      "f1_macro": 0.9598845598845598,
+      "per_class": {
+        "iniciante": {
+          "precision": 0.9642857142857143,
+          "recall": 1.0,
+          "f1-score": 0.9818181818181818,
+          "support": 27.0
+        },
+        "intermediario": {
+          "precision": 0.9629629629629629,
+          "recall": 0.9285714285714286,
+          "f1-score": 0.9454545454545454,
+          "support": 28.0
+        },
+        "avancado": {
+          "precision": 0.9523809523809523,
+          "recall": 0.9523809523809523,
+          "f1-score": 0.9523809523809523,
+          "support": 21.0
+        }
+      },
+      "confusion_matrix": {
+        "labels": [
+          "iniciante",
+          "intermediario",
+          "avancado"
+        ],
+        "matrix": [
+          [
+            27,
+            0,
+            0
+          ],
+          [
+            1,
+            26,
+            1
+          ],
+          [
+            0,
+            1,
+            20
+          ]
+        ]
+      },
+      "meets_rnf03": true
+    },
+    "knn": {
+      "accuracy": 0.868421052631579,
+      "f1_macro": 0.8683028325530807,
+      "per_class": {
+        "iniciante": {
+          "precision": 0.9230769230769231,
+          "recall": 0.8888888888888888,
+          "f1-score": 0.9056603773584906,
+          "support": 27.0
+        },
+        "intermediario": {
+          "precision": 0.8275862068965517,
+          "recall": 0.8571428571428571,
+          "f1-score": 0.8421052631578947,
+          "support": 28.0
+        },
+        "avancado": {
+          "precision": 0.8571428571428571,
+          "recall": 0.8571428571428571,
+          "f1-score": 0.8571428571428571,
+          "support": 21.0
+        }
+      },
+      "confusion_matrix": {
+        "labels": [
+          "iniciante",
+          "intermediario",
+          "avancado"
+        ],
+        "matrix": [
+          [
+            24,
+            2,
+            1
+          ],
+          [
+            2,
+            24,
+            2
+          ],
+          [
+            0,
+            3,
+            18
+          ]
+        ]
+      },
+      "meets_rnf03": true
+    }
+  }
+}

@@ -246,3 +246,31 @@ Os relatórios `data/model_comparison.json` e `data/model_tuning.json`
 registram os experimentos anteriores. Para reproduzi-los, execute
 `python compare_models.py --output-dir ../tmp/model-comparison` ou
 `python tune_models.py --output-dir ../tmp/model-tuning`.
+
+## Qualidade do modelo (RNF03)
+
+O RNF03 pede acurácia e F1 macro de pelo menos 80% em um conjunto de teste
+separado, com métricas por classe. Para medir, execute na pasta `backend`:
+
+```bash
+python evaluate_models.py
+```
+
+O script usa a mesma divisão do KNN: 303 registros para treino e 76 para teste,
+com semente 42. Antes de avaliar, confere se o KNN versionado foi treinado só
+com os 303 registros. A regressão logística e o SVM são treinados de novo
+nesses 303 registros, porque os arquivos versionados usam o CSV inteiro.
+
+| Modelo | Acurácia | F1 macro | F1 iniciante | F1 intermediário | F1 avançado |
+|---|---|---|---|---|---|
+| Regressão logística | 90,79% | 90,47% | 98,18% | 86,27% | 86,96% |
+| SVM | 96,05% | 95,99% | 98,18% | 94,55% | 95,24% |
+| KNN | 86,84% | 86,83% | 90,57% | 84,21% | 85,71% |
+
+Os três modelos atingem a meta. O SVM teve o melhor resultado e é o recomendado para a API. O teste tem 27 iniciantes, 28 intermediários e
+21 avançados. O erro mais comum da regressão logística é classificar
+intermediário como avançado, em 5 dos 28 casos. Os hiperparâmetros da regressão
+logística e do SVM foram escolhidos por validação cruzada com o CSV inteiro,
+incluindo os registros de teste, o que pode deixar esses dois resultados um
+pouco otimistas. Precisão, revocação e matrizes de confusão estão em
+`data/test_evaluation.json`.
