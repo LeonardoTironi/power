@@ -40,8 +40,8 @@ cp .env.example .env
 |---|---|---|
 | `CORS_ORIGINS` | `http://localhost:5173` | Origens do frontend, separadas por vírgula, sem barra final. |
 | `DATABASE_URL` | `postgresql+psycopg://scouter:scouter@localhost:5432/scouter_power` | Conexão com o PostgreSQL. |
-| `MODEL_PATH` | `data/logistic_regression_tuned_model.joblib` | Pipeline do modelo. Caminho relativo à pasta `backend`. |
-| `MODEL_VERSION` | `logistic_regression_tuned-v1` | Versão devolvida em `versao_modelo` (RNF06). |
+| `MODEL_PATH` | `data/svm_tuned_model.joblib` | Pipeline do modelo. Caminho relativo à pasta `backend`. |
+| `MODEL_VERSION` | `svm_tuned-v1` | Versão devolvida em `versao_modelo` (RNF06). |
 | `JWT_SECRET` | — | Chave de assinatura dos tokens. Use um valor longo e aleatório em produção. |
 | `JWT_EXPIRA_MINUTOS` | `60` | Validade do token de acesso. |
 
@@ -130,7 +130,7 @@ respostas (RN04). O resultado não substitui avaliação médica ou profissional
 ## Testes
 
 Os testes não precisam de PostgreSQL: usam SQLite em memória, injetado em
-`get_session`, e o modelo `data/logistic_regression_tuned_model.joblib`.
+`get_session`, e o modelo `data/svm_tuned_model.joblib`.
 
 ```bash
 venv\Scripts\python.exe -m pytest
@@ -201,8 +201,8 @@ produção.
 Os três modelos estão em `data/`:
 
 - KNN (`knn_model.joblib`).
-- Regressão logística (`logistic_regression_tuned_model.joblib`), usado pela API por padrão.
-- SVM (`svm_tuned_model.joblib`).
+- Regressão logística (`logistic_regression_tuned_model.joblib`).
+- SVM (`svm_tuned_model.joblib`), usado pela API por padrão.
 
 Para reproduzir os três modelos, use Python 3.12 em um ambiente virtual e
 execute na pasta `backend`:
@@ -267,7 +267,7 @@ nesses 303 registros, porque os arquivos versionados usam o CSV inteiro.
 | SVM | 96,05% | 95,99% | 98,18% | 94,55% | 95,24% |
 | KNN | 86,84% | 86,83% | 90,57% | 84,21% | 85,71% |
 
-Os três modelos atingem a meta. O SVM teve o melhor resultado e é o recomendado para a API. O teste tem 27 iniciantes, 28 intermediários e
+Os três modelos atingem a meta. A API usa o SVM, que teve o melhor resultado. O teste tem 27 iniciantes, 28 intermediários e
 21 avançados. O erro mais comum da regressão logística é classificar
 intermediário como avançado, em 5 dos 28 casos. Os hiperparâmetros da regressão
 logística e do SVM foram escolhidos por validação cruzada com o CSV inteiro,
