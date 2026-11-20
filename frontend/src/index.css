@@ -1,0 +1,99 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+ * Tema "scouter" (escuro). Cada cor é um triplet OKLCH "L C H" sem alfa, para que o
+ * Tailwind possa compor `oklch(var(--x) / <alpha-value>)` (ex.: bg-primary/10).
+ * Cores que precisam de transparência padrão (borda, input) usam uma variável de alfa
+ * separada, multiplicada pelo modificador de opacidade no tailwind.config.js.
+ */
+@layer base {
+  :root {
+    color-scheme: dark;
+    --radius: 0.625rem;
+    --background: 0.08 0.03 270;
+    --foreground: 0.98 0 0;
+    --card: 0.12 0.03 270;
+    --card-foreground: 0.98 0 0;
+    --popover: 0.12 0.03 270;
+    --popover-foreground: 0.98 0 0;
+    --primary: 0.7 0.18 55;
+    --primary-foreground: 0.15 0.02 55;
+    --secondary: 0.2 0.04 270;
+    --secondary-foreground: 0.98 0 0;
+    --muted: 0.2 0.04 270;
+    --muted-foreground: 0.72 0.03 270;
+    --accent: 0.8 0.15 195;
+    --accent-foreground: 0.08 0.03 270;
+    /* Texto/borda de erro sobre o fundo escuro: 5,2:1 no background, 5,1:1 no card. */
+    --destructive: 0.62 0.2 25;
+    /* Fundo do botão "destructive" (mesmo matiz, mais escuro): 5,8:1 com o texto branco. */
+    --destructive-strong: 0.52 0.2 25;
+    --destructive-foreground: 0.98 0 0;
+    --success: 0.75 0.17 150;
+    --warning: 0.8 0.16 85;
+    --border: 0.8 0.15 195;
+    --border-alpha: 0.2;
+    --input: 0.8 0.15 195;
+    --input-alpha: 0.35;
+    --ring: 0.8 0.15 195;
+    --chart-1: 0.7 0.18 55;
+    --chart-2: 0.8 0.15 195;
+    --chart-3: 0.8 0.18 90;
+    --chart-4: 0.65 0.2 25;
+    --chart-5: 0.6 0.15 300;
+    --sidebar: 0.12 0.03 270;
+    --sidebar-foreground: 0.98 0 0;
+    --sidebar-primary: 0.7 0.18 55;
+    --sidebar-primary-foreground: 0.15 0.02 55;
+    --sidebar-accent: 0.2 0.04 270;
+    --sidebar-accent-foreground: 0.98 0 0;
+    --sidebar-border: 0.8 0.15 195;
+    --sidebar-ring: 0.8 0.15 195;
+    --ki-gold: 0.8 0.18 90;
+    --font-display: "Anton", sans-serif;
+    --font-body: "Inter", sans-serif;
+    --font-mono: "JetBrains Mono", monospace;
+    --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body);
+  }
+
+  :focus-visible {
+    outline: 2px solid oklch(var(--ring));
+    outline-offset: 2px;
+  }
+
+  dialog::backdrop {
+    background: oklch(0 0 0 / 0.7);
+    backdrop-filter: blur(2px);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
